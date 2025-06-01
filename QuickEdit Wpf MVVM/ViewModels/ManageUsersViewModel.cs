@@ -14,7 +14,7 @@ namespace QuickEdit_Wpf_MVVM.ViewModels
         private int id = 1;
 
         [ObservableProperty]
-        private string name = "Jack";
+        private string? name = "Jack";
 
 
         [ObservableProperty]
