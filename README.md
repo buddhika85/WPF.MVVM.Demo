@@ -2,6 +2,8 @@
 
 A simple and quick demonstration of implementing the MVVM pattern using the CommunityToolkit.MVVM framework from Microsoft.
 
+![MVVM UI](https://github.com/buddhika85/WPF.MVVM.Demo/blob/main/UI.png?raw=true)
+
 ## MVVM Framework Used
 - CommunityToolkit.Mvvm v8.4.0
   
