@@ -1,8 +1,21 @@
-﻿namespace QuickEdit_Wpf_MVVM.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace QuickEdit_Wpf_MVVM.Models
 {
-    public class UserModel
+    public partial class UserModel : ObservableObject
     {
-        public required string Name { get; set; }
-        public int Age { get; set; }
+        [ObservableProperty]
+        public int id;
+
+        [ObservableProperty]
+        public string? name;
+
+        [ObservableProperty]
+        public int age;
+
+        public override string ToString()
+        {
+            return $"{Name} {Age}";
+        }
     }
 }
