@@ -36,7 +36,9 @@
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
             <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding Age}"/>
 
-            <Button Grid.Row="2" Grid.Column="3" Command="{Binding AddUserCommand}">Add New User</Button>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding Message}"></Label>
+
+            <Button Grid.Row="2" Grid.Column="3" Command="{Binding SaveUserCommand}">Save User</Button>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -48,10 +50,25 @@
 
             <Label Grid.Row="0">All Users</Label>
 
-            <DataGrid Grid.Row="1" ItemsSource="{Binding users}">
+            <DataGrid Grid.Row="1" ItemsSource="{Binding users}" AutoGenerateColumns="False" CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                     <DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="*"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Edit" Command="{Binding DataContext.EditUserCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                        CommandParameter="{Binding}" />
+                                    <Button Content="Delete" Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
+                                        CommandParameter="{Binding}" />
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
                 </DataGrid.Columns>
 
             </DataGrid>

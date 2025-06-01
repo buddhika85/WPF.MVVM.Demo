@@ -17,23 +17,27 @@ namespace QuickEdit_Wpf_MVVM.ViewModels
         [ObservableProperty]
         private int age = 30;
 
+        [ObservableProperty]
+        public string message;
+
         #endregion InsertForm
 
         #region Grid
 
-        public ObservableCollection<UserModel> users = new ObservableCollection<UserModel>();
+        public ObservableCollection<UserModel> users { get; }
 
         #endregion Grid
 
         #region Commands
 
-        public RelayCommand AddUserCommand { get; }
+        public RelayCommand SaveUserCommand { get; }
         public RelayCommand RemoveUserCommand { get; }
         #endregion Commands
 
         public ManageUsersViewModel()
         {
-            AddUserCommand = new RelayCommand(AddUser);
+            users = new ObservableCollection<UserModel>();
+            SaveUserCommand = new RelayCommand(SaveUser);
             RemoveUserCommand = new RelayCommand(RemoveUser);
         }
 
@@ -42,9 +46,10 @@ namespace QuickEdit_Wpf_MVVM.ViewModels
             MessageBox.Show("Remove");
         }
 
-        private void AddUser()
+        private void SaveUser()
         {
-            MessageBox.Show("Add");
+            if (!string.IsNullOrWhiteSpace(Name))
+                users.Add(new UserModel { Name = Name, Age = Age });
         }
     }
 
