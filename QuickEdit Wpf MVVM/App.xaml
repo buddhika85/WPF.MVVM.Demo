@@ -4,6 +4,28 @@
              xmlns:local="clr-namespace:QuickEdit_Wpf_MVVM"
              StartupUri="\views\manageusersview.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="Button" x:Key="MainBtn">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="MaxWidth" Value="200"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="GridRowBtnEdit">
+            <Setter Property="Background" Value="LightGreen"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="GridRowBtnDelete">
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:QuickEdit_Wpf_MVVM.Views"
         mc:Ignorable="d"
         Title="Manage Users" Height="450" Width="800">
-    
-    <Grid>
+
+    <Grid Margin="5">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
@@ -37,9 +37,9 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button Content="Edit" Command="{Binding DataContext.EditUserCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
-                                        CommandParameter="{Binding}" />
+                                        CommandParameter="{Binding}" Style="{StaticResource GridRowBtnEdit}"/>
                                     <Button Content="Delete" Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=Window}}" 
-                                        CommandParameter="{Binding}" />
+                                        CommandParameter="{Binding}" Style="{StaticResource GridRowBtnDelete}"/>
                                 </StackPanel>
 
                             </DataTemplate>
@@ -81,7 +81,8 @@
 
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Content="{Binding Message}" />
 
-            <Button Grid.Row="2" Grid.Column="5" Command="{Binding SaveUserCommand}">Save User</Button>
+            <Button Grid.Row="2" Grid.Column="5" Command="{Binding SaveUserCommand}" 
+                    Style="{StaticResource MainBtn}">Save User</Button>
         </Grid>
 
     </Grid>
